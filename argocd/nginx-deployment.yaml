@@ -6,7 +6,7 @@ metadata:
     run: nginx
   name: nginx
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       run: nginx
