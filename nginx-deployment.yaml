@@ -1,22 +1,24 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  namespace: nginx-demo
-  labels:
-    run: nginx
-  name: nginx
-spec:
-  replicas: 3
-  selector:
-    matchLabels:
+# kubectl run nginx --replicas=2 --image=nginx:alpine --port=80 --dry-run -o yaml
+
+apiVersion: apps/v1               # 与k8s集群版本有关，使用 kubectl api-versions 即可查看当前集群支持的版本
+kind: Deployment                  # 该配置的类型，我们使用的是 Deployment
+metadata:                         # 译名为元数据，即 Deployment 的一些基本属性和信息
+  #namespace: nginx
+  labels:                         # 标签，可以灵活定位一个或多个资源，其中key和value均可自定义，可以定义多组
+    run: nginx                    # 为该Deployment设置key为run，value为nginx的标签
+  name: nginx                     # Deployment 的名称
+spec:                             # 这是关于该Deployment的描述，可以理解为你期待该Deployment在k8s中如何使用
+  replicas: 2                     # 使用该Deployment创建一个应用程序实例
+  selector:                       # 标签选择器，与上面的标签共同作用
+    matchLabels:                  # 选择包含标签run:nginx的资源
       run: nginx
-  template:
-    metadata:
-      labels:
+  template:                       # 这是选择或创建的Pod的模板
+    metadata:                     # Pod的元数据
+      labels:                     # Pod的标签，上面的selector即选择包含标签run:nginx的Pod
         run: nginx
-    spec:
-      containers:
-      - image: nginx:alpine
-        name: nginx
-        ports:
+    spec:                         # 期望Pod实现的功能（即在pod中部署）
+      containers:                 # 生成container，与docker中的container是同一种
+      - image: nginx:alpine       # 使用镜像nginx:1.7.9创建container
+        name: nginx               # container的名称
+        ports:                    # 该container默认80端口可访问
         - containerPort: 80
