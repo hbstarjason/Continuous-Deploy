@@ -46,7 +46,7 @@ $ ./argocd-linux-amd64 app list
 
 # 增加自定义的示例
 $ ./argocd-linux-amd64 app create nginxdemo \
-  --repo https://github.com/hbstarjason/spinnaker-demo.git \
+  --repo https://github.com/hbstarjason/Continuous-Deploy.git \
   --path argocd \
   --dest-server https://kubernetes.default.svc \
   --dest-namespace nginx-demo
