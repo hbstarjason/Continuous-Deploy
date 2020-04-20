@@ -33,6 +33,9 @@ $ ./argocd-linux-amd64 cluster list
 SERVER                                                                      NAME      STATUS      MESSAGE
 https://kubernetes.default.svc                                                        Successful  
 
+# 增加集群
+$ argocd cluster add $CONTEXTNAME
+
 # 增加官方示例
 $ ./argocd-linux-amd64 app create guestbook \
   --repo https://github.com/argoproj/argocd-example-apps.git \
