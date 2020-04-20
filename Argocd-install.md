@@ -12,6 +12,7 @@ $ kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"
 $ kubectl get pods -n argocd -l app.kubernetes.io/name=argocd-server -o name | cut -d'/' -f 2
 
 # 下载命令行工具并登录
+# https://github.com/argoproj/argo-cd/releases/latest
 $ wget https://github.com/argoproj/argo-cd/releases/download/v1.1.2/argocd-linux-amd64
 $ chmod +x argocd-linux-amd64
 $ ./argocd-linux-amd64 login <LoadBalancerIP>
