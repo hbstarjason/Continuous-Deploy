@@ -37,12 +37,16 @@ kubectl apply -f https://spinnaker.io/downloads/kubernetes/quick-install.yml
 # Spinnaker使用
 
 ### 一、概念介绍
+资源管理界面整体布局：
+（截图）
 
 Project
 
 Applications
 
 Pipeline
+页面布局：
+（截图）
 
 Infrastructure
 
@@ -77,6 +81,7 @@ Tasks
 ### 三、进阶使用
 
 通过设置pipeline创建k8s资源
+1、
 
 ### 四、项目实战
 
