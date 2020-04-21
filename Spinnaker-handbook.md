@@ -14,13 +14,13 @@ kubectl apply -f https://spinnaker.io/downloads/kubernetes/quick-install.yml
 
 本人总结主要4种：
 
-1、Full Install（官网地址：https://www.spinnaker.io/setup/install/）
+1、Full Install（官网地址：https://www.spinnaker.io/setup/install/ ）
 
-2、Helm方式安装（地址：https://www.qikqiak.com/post/deploy-spinnaker-on-k8s/）
+2、Helm方式安装（地址：https://www.qikqiak.com/post/deploy-spinnaker-on-k8s/ ）
 
 3、Operator方式安装
 
-4、Docker-compose安装（地址：https://github.com/hbstarjason/spinnaker-local）
+4、Docker-compose安装（地址：https://github.com/hbstarjason/spinnaker-local ）
 
 点评：无论用何种方法，本人强烈推荐Full Install安装方法（不解释）。
 
