@@ -60,7 +60,7 @@ Tasks
 
 ### 二、基础使用
 
-通过UI直接创建k8s资源
+通过UI直接创建k8s资源(官网地址：https://www.spinnaker.io/guides/user/applications/ )
 
 1、新建应用（Create Application）
 
@@ -80,8 +80,8 @@ Tasks
 
 ### 三、进阶使用
 
-通过设置pipeline创建k8s资源
-1、
+通过设置简单的pipeline创建k8s资源（官网地址：https://www.spinnaker.io/guides/user/pipeline/ ）
+1、https://www.spinnaker.io/guides/user/kubernetes-v2/deploy-manifest/
 
 ### 四、项目实战
 
