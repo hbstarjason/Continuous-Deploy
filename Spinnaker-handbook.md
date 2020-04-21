@@ -38,25 +38,25 @@ kubectl apply -f https://spinnaker.io/downloads/kubernetes/quick-install.yml
 
 ### 一、概念介绍
 资源管理界面整体布局：
-（截图）
+（截图）  
 
-Project
+Project  
 
-Applications
+Applications  
 
 Pipeline
-页面布局：
-（截图）
+页面布局：  
+（截图）  
 
-Infrastructure
+Infrastructure  
 
-Cluster
+Cluster  
 
-Load balancers
+Load balancers  
 
-Firewalls
+Firewalls  
 
-Tasks
+Tasks  
 
 ### 二、基础使用
 
@@ -85,12 +85,12 @@ https://www.spinnaker.io/guides/user/applications/
 ### 三、进阶使用
 
 通过设置简单的pipeline创建k8s资源（官网地址：https://www.spinnaker.io/guides/user/pipeline/ ） 
- https://www.spinnaker.io/guides/user/pipeline/managing-pipelines/
+ https://www.spinnaker.io/guides/user/pipeline/managing-pipelines/  
 1、https://www.spinnaker.io/guides/user/kubernetes-v2/deploy-manifest/
 
 ### 四、项目实战
 
-1、对接Jenkins Master，设置好Spinnaker pipeline Trigger，实现自动检测Jenkins Job完成后，自动触发自动化部署应用。   
+1、对接Jenkins Master，设置好Spinnaker pipeline Trigger，实现自动检测Jenkins Job完成后，自动触发自动化部署应用。    
 官网地址：https://www.spinnaker.io/guides/user/pipeline/triggers/jenkins/  
 
 2、对接Image Registry，设置好Spinnaker Pipeline Trigger，实现自动检测Image Tag更新后，自动触发自动化部署应用。   
