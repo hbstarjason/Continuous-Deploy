@@ -4,11 +4,13 @@
 
 官网介绍的安装方法：https://www.spinnaker.io/setup/quickstart/
 
-官网还有一个All-in-one安装方法：
+官网还有一个隐藏的All-in-one安装方法：
 
-`kubectl apply -f https://spinnaker.io/downloads/kubernetes/quick-install.yml`
+```
+kubectl apply -f https://spinnaker.io/downloads/kubernetes/quick-install.yml
 
-（请放心，不修改yaml文件和配置相关的StorageClass，直接执行肯定是无法安装的！所谓的quick-install一点都不quick！）
+# 请放心，不修改yaml文件和配置相关的StorageClass，直接执行肯定是无法安装的！所谓的quick-install一点都不quick！
+```
 
 本人总结主要4种：
 
