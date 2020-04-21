@@ -60,7 +60,7 @@ Tasks
 
 ### 二、基础使用
 
-通过UI直接创建k8s资源(官网地址：https://www.spinnaker.io/guides/user/applications/ )
+通过UI直接创建k8s资源   
 
 1、新建应用（Create Application）
 
@@ -78,16 +78,23 @@ Tasks
 
 访问路径：Applications—>Infrastructure—>Firewalls—>Create Firewall
 
+官网地址：  
+https://www.spinnaker.io/guides/user/get-started/  
+https://www.spinnaker.io/guides/user/applications/  
+
 ### 三、进阶使用
 
-通过设置简单的pipeline创建k8s资源（官网地址：https://www.spinnaker.io/guides/user/pipeline/ ）
+通过设置简单的pipeline创建k8s资源（官网地址：https://www.spinnaker.io/guides/user/pipeline/ ） 
+ https://www.spinnaker.io/guides/user/pipeline/managing-pipelines/
 1、https://www.spinnaker.io/guides/user/kubernetes-v2/deploy-manifest/
 
 ### 四、项目实战
 
-1、对接Jenkins Master，设置好Spinnaker pipeline Trigger，实现自动检测Jenkins Job完成后，自动触发自动化部署应用。
+1、对接Jenkins Master，设置好Spinnaker pipeline Trigger，实现自动检测Jenkins Job完成后，自动触发自动化部署应用。   
+官网地址：https://www.spinnaker.io/guides/user/pipeline/triggers/jenkins/  
 
-2、对接Image Registry，设置好Spinnaker Pipeline Trigger，实现自动检测Image Tag更新后，自动触发自动化部署应用。
+2、对接Image Registry，设置好Spinnaker Pipeline Trigger，实现自动检测Image Tag更新后，自动触发自动化部署应用。   
+
 
 ### 五、高级项目实战
 
