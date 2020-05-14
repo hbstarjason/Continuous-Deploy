@@ -19,6 +19,8 @@ $ ./argocd-linux-amd64 login <LoadBalancerIP>
 Username: admin
 Password: <上一步获取到的token>
 
+## argocd login --insecure <LoadBalancerIP>
+
 # 修改密码并重新登录
 $ ./argocd-linux-amd64 account update-password
 $ ./argocd-linux-amd64 relogin
