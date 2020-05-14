@@ -55,6 +55,12 @@ $ ./argocd-linux-amd64 app create nginxdemo \
   --dest-server https://kubernetes.default.svc \
   --dest-namespace nginx-demo
 
+## --revision master  
+## --sync-policy automated  
+## --auto-prune
+
+
+
 # 确认示例已增加
 $ ./argocd-linux-amd64 app list
 NAME       CLUSTER                         NAMESPACE      PROJECT  STATUS     HEALTH    SYNCPOLICY  CONDITIONS
