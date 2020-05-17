@@ -35,9 +35,9 @@ $ kubectl apply -k github.com/weaveworks/flagger//kustomize/podinfo
 $ helm upgrade -i flagger-loadtester flagger/loadtester \
 --namespace=test
 
-$ kubectl apply -f ./podinfo-ingress.yaml
+$ kubectl apply -f https://raw.githubusercontent.com/hbstarjason/Continuous-Deploy/master/flagger/podinfo-ingress.yaml
 
-$ kubectl apply -f ./podinfo-canary.yaml
+$ kubectl apply -f https://raw.githubusercontent.com/hbstarjason/Continuous-Deploy/master/flagger/podinfo-canary.yaml
 ```
 
 验证测试自动化金丝雀
