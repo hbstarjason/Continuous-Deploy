@@ -1,0 +1,20 @@
+
+
+https://www.katacoda.com/courses/kubernetes/create-kubernetes-ingress-routes
+
+https://github.com/nginxinc/kubernetes-ingress/tree/master/deployments
+
+kubectl apply -f deployment.yaml
+
+kubectl create -f ingress.yaml
+kubectl get deployment -n nginx-ingress
+
+kubectl create -f ingress-rules.yaml
+
+kubectl get ing
+
+curl -H "Host: my.kubernetes.example" 172.17.0.16/webapp1
+
+curl -H "Host: my.kubernetes.example" 172.17.0.16/webapp2
+
+curl -H "Host: my.kubernetes.example" 172.17.0.16
