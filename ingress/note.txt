@@ -13,8 +13,8 @@ kubectl create -f ingress-rules.yaml
 
 kubectl get ing
 
-curl -H "Host: my.kubernetes.example" 172.17.0.16/webapp1
+curl -H "Host: my.kubernetes.example" 172.17.0.41/webapp1
 
-curl -H "Host: my.kubernetes.example" 172.17.0.16/webapp2
+curl -H "Host: my.kubernetes.example" 172.17.0.41/webapp2
 
-curl -H "Host: my.kubernetes.example" 172.17.0.16
+curl -H "Host: my.kubernetes.example" 172.17.0.41
