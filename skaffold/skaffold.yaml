@@ -10,4 +10,4 @@ deploy:
     - paths:
       - k8s-*
       parameters:
-        IMAGE_NAME: cnych/skaffold-demo
+        IMAGE_NAME: hbstarjason/skaffold-demo
