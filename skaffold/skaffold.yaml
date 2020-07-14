@@ -1,0 +1,13 @@
+apiVersion: skaffold/v2beta5
+kind: Config
+build:
+  artifacts:
+  - image: hbstarjason/skaffold-demo
+    workspaces: .
+deploy:
+  kubectl:
+    manifests:
+    - paths:
+      - k8s-*
+      parameters:
+        IMAGE_NAME: cnych/skaffold-demo

@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: skaffold-example
+spec:
+  containers:
+  - name: skaffold-example
+    image: IMAGE_NAME
