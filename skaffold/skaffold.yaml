@@ -3,10 +3,8 @@ kind: Config
 build:
   artifacts:
   - image: hbstarjason/skaffold-demo
-    #workspaces: .
 deploy:
   kubectl:
     manifests:
-    - paths:
       - k8s-*
 
