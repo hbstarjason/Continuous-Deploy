@@ -7,7 +7,8 @@ spec:
     spec:
       containers:
       - name: kaniko
-        image: gcr.io/kaniko-project/executor:latest
+        #image: gcr.io/kaniko-project/executor:latest
+        image: hbstarjason/executor:v0.24.0
         args: ["--dockerfile=kaniko/Dockerfile",
                "--context=git://github.com/GHUSER/GHREPO.git#refs/heads/master",
                "--destination=<repo>/<tag>"]
