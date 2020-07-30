@@ -1,0 +1,94 @@
+#!/usr/bin/env groovy
+
+def projectProperties = [
+        [$class: 'BuildDiscarderProperty', strategy: [$class: 'LogRotator', numToKeepStr: '5']],
+        parameters([
+            string(name: 'DOCKER_USER', defaultValue: '', description: 'docker用户名'),
+            string(name: 'DOCKER_PASSWORD', defaultValue: '', description: 'docker用户密码'),
+            string(name: 'REGISTRY_URL', defaultValue: 'docker.io', description: 'docker仓库地址')
+        ])
+]
+
+properties(projectProperties)
+
+def label = "mypod-${UUID.randomUUID().toString()}"
+
+podTemplate(label: label, cloud: 'kubernetes', serviceAccount: 'admin', containers: [
+            containerTemplate(name: 'maven', image: 'maven:3.6.0-jdk-8', command: 'cat', ttyEnabled: true),
+            //containerTemplate(name: 'maven', image: 'maven:3.6-alpine', command: 'cat', ttyEnabled: true),
+            //containerTemplate(name: 'docker', image: 'docker', command: 'cat', ttyEnabled: true),
+            //containerTemplate(name: 'kubectl', image: 'cnych/kubectl', command: 'cat', ttyEnabled: true),
+            //containerTemplate(name: 'kubectl', image: 'lachlanevenson/k8s-kubectl:v1.10.2', command: 'cat', ttyEnabled: true),
+            containerTemplate(name: 'kubectl', image: 'lachlanevenson/k8s-kubectl:v1.18.6', command: 'cat', ttyEnabled: true),
+            containerTemplate(name: 'kaniko', image: 'hbstarjason/executor:v0.24.0', command: 'cat', ttyEnabled: true),
+            //containerTemplate(name: 'helm', image: 'cnych/helm', command: 'cat', ttyEnabled: true)
+            ],
+            volumes: [
+                    //hostPathVolume(hostPath: '/var/run/docker.sock', mountPath: '/var/run/docker.sock'),
+                    //hostPathVolume(mountPath: '/root/.gradle', hostPath: '/home/gradle/.gradle'),
+                    //hostPathVolume(hostPath: '/root/.kube', mountPath: '/root/.kube'),
+                    hostPathVolume(hostPath: '/root/.m2', mountPath: '/root/.m2')
+            ],
+            annotations: [
+                    podAnnotation(key: "sidecar.istio.io/inject", value: "false")
+            ]
+
+) {
+
+    node(label) {
+
+        def gitCommit
+        def shortGitCommit
+        def previousGitCommit
+
+       container('maven') {
+
+            stage('checkout') {
+                checkout scm
+
+                sh 'printenv'
+
+                gitCommit = sh(script: "git rev-parse HEAD", returnStdout: true).trim()
+                shortGitCommit = "${currentBuild.number}-${gitCommit[0..10]}"
+                //shortGitCommit = "${gitCommit[0..10]}"    
+                previousGitCommit = sh(script: "git rev-parse ${gitCommit}~", returnStdout: true)
+
+                echo "gitCommit = ${gitCommit}"
+                echo "shortGitCommit = ${shortGitCommit}"
+                echo "previousGitCommit = ${previousGitCommit}"
+            }
+               
+                //https://jenkins.io/doc/pipeline/tour/tests-and-artifacts/
+            //stage('pacakge') {
+            //    sh 'mvn clean package -Dmaven.test.skip=true -s ./settings.xml'
+            //}
+
+        } 
+
+
+
+        container('kubectl') {
+            stage('create secret') {
+                //sh "sed -i \"s/hbstarjason\\/springboot-devops-demo/${params.REGISTRY_URL}\\/${params.DOCKER_USER}\\/springboot-devops-demo:${shortGitCommit}/g\" springboot-devops-demo.yaml"
+                //sh "kubectl --kubeconfig=/root/.kube/config apply -f springboot-devops-demo.yaml"
+                sh "kubectl version"
+                //sh "kubectl create secret docker-registry hbstarjason      "
+                //kubectl get svc springboot-devops-demo -n springboot-devops-demo -o yaml |sed 's/ClusterIP/LoadBalancer/' |kubectl replace -f -
+            }
+        }
+        
+
+        container('kaniko') {
+            stage('kaniko build') {
+               sh '''
+                  /kaniko/executor version
+
+                  '''
+               }
+          }
+
+    }
+     
+}
+
+
