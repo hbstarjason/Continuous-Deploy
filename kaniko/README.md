@@ -71,3 +71,43 @@ kaniko-nlg7j   0/1     Completed   0          9m53s
 ```
 
 
+
+## Running-kaniko-in-Docker
+
+```bash
+# https://github.com/GoogleContainerTools/kaniko#running-kaniko-in-docker
+
+# 
+$ docker login
+Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com to createone.
+Username: hbstarjason
+Password:
+WARNING! Your password will be stored unencrypted in /root/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+
+Login Succeeded
+
+$ ls $HOME/.docker/
+config.json
+
+#### 已自动生成dockerhub的认证信息
+
+$ git clone https://github.com/hbstarjason/Continuous-Deploy && cd Continuous-Deploy/kaniko
+
+$ docker run --name kaniko \
+    -v $HOME/.docker/:/kaniko/.docker \
+    -v $PWD:/workspace \
+    hbstarjason/executor:v0.24.0 \
+    --dockerfile Dockerfile \
+    --destination hbstarjason/nginx:v3 \
+    --context /workspace
+# --no-push
+# --cache
+
+# 原镜像gcr.io/kaniko-project/executor:v0.24.0已同步至hbstarjason/executor:v0.24.0
+# 执行完毕后，可以直接在镜像仓库里看到对应的镜像了，默认镜像本地不会保存。
+
+
+```
+
