@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kaniko
+spec:
+  containers:
+  - name: kaniko
+    image: hbstarjason/executor:v0.24.0
+    args: ["--dockerfile=fluxcd/Dockerfile",
+            "--context=git://github.com/hbstarjason/Continuous-Deploy.git#refs/heads/master",
+            "--destination=hbstarjason/nginx:v4"]
+    volumeMounts:
+      - name: kaniko-secret
+        mountPath: "/kaniko/.docker"
+  restartPolicy: Never
+  volumes:
+    - name: kaniko-secret
+      secret:
+        secretName: hbstarjason
+        items:
+          - key: .dockerconfigjson
+            path: config.json
