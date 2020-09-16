@@ -27,7 +27,7 @@ $ sed -i "s/GHREPO/${GHREPO}/g" build.yaml
 $ sed -i "s/<repo>/${DOCKERREPO}/g" build.yaml
 $ sed -i "s/<tag>/nginx:v1/g" build.yaml
 
-###### 已将原始的gcr.io镜像同步至github
+###### 已将原始的（gcr.io/kaniko-project/executor:v0.24.0）镜像同步至dockerhub（hbstarjason/executor:v0.24.0）
 
 ### 此处需要特别注意build.yaml里的Dockerfile存放目录
 $ sed -i "s/v_x/1/g" Dockerfile
