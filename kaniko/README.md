@@ -17,8 +17,8 @@ $ export DOCKEREMAIL="<YOUR_DOCKER_EMAIL>"
 $ kubectl create secret docker-registry hbstarjason \
     --docker-server=${DOCKERSERVER} \
     --docker-username=${DOCKERREPO} \
-	--docker-password=${DOCKERPASS} \
-	--docker-email=${DOCKEREMAIL}
+    --docker-password=${DOCKERPASS} \
+    --docker-email=${DOCKEREMAIL}
 
 $ git clone https://github.com/hbstarjason/Continuous-Deploy && cd Continuous-Deploy/kaniko
 
