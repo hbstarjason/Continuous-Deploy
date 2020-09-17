@@ -17,7 +17,7 @@ $ fluxctl install \
 --git-user=${GHUSER} \
 --git-email=${GHUSER}@users.noreply.github.com \
 --git-url=git@github.com:${GHUSER}/${GHREPO}.git \
---git-path=namespaces,workloads \
+--git-path=fluxcd \
 --namespace=flux | kubectl apply -f -
 
 $ kubectl -n flux rollout status deployment/flux
@@ -39,8 +39,8 @@ $ export DOCKEREMAIL="<YOUR_DOCKER_EMAIL>"
 $ kubectl create secret docker-registry hbstarjason \
     --docker-server=${DOCKERSERVER} \
     --docker-username=${DOCKERREPO} \
-	--docker-password=${DOCKERPASS} \
-	--docker-email=${DOCKEREMAIL}
+    --docker-password=${DOCKERPASS} \
+    --docker-email=${DOCKEREMAIL}
 
 $ fluxctl sync --k8s-fwd-ns flux
 
